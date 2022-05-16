@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.example.newsapp.home.HomeScreenFragment"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_savedScreenFragment"
+            app:destination="@id/savedScreenFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedScreenFragment"
+        android:name="com.example.newsapp.saved.SavedScreenFragment"
+        android:label="fragment_saved_screen"
+        tools:layout="@layout/fragment_saved_screen" >
+        <action
+            android:id="@+id/action_savedScreenFragment_to_searchScreenFragment"
+            app:destination="@id/searchScreenFragment" />
+        <action
+            android:id="@+id/action_savedScreenFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchScreenFragment"
+        android:name="com.example.newsapp.search.SearchScreenFragment"
+        android:label="fragment_search_screen"
+        tools:layout="@layout/fragment_search_screen" >
+        <action
+            android:id="@+id/action_searchScreenFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.newsapp.webview.WebViewFragment"
+        android:label="fragment_webview"
+        tools:layout="@layout/fragment_webview" >
+        <argument
+            android:name="article"
+            app:argType="com.example.newsapp.home.data.model.Article" />
+    </fragment>
+</navigation>
